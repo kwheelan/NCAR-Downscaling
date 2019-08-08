@@ -1,6 +1,6 @@
 Katrina Wheelan, August 2019
 
-This is a repository with the scripts and output data from the 2019 summer SIParCS project on statistical downscaling. 
+This is a repository with the scripts and output data from the 2019 summer SIParCS project on statistical downscaling using machine learning. The three models (linear, random forest, and convolutional neural network) each have precipitation predictions as well as the scripts and data used to train the models.  
 
 Folders in this repository:
 
