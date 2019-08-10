@@ -1,5 +1,7 @@
 Katrina Wheelan, August 2019
 
+--------------------------------------------------------------
+
 This is a repository with the scripts from the 2019 summer SIParCS project on statistical downscaling using machine learning. The three models (linear, random forest, and convolutional neural network) each have the scripts used to train the models and make predictions. All models are training/evaluated using WRF initialized with Era-Interim and Maurer observed precipitation data from 1980-2010. 
 
 Folders in this repository:
@@ -8,11 +10,13 @@ Folders in this repository:
   
   *shellScripts* - The bash scripts to run on Casper to fit the models and make predictions. These shell scripts call the python scripts in the scripts folder and run them in parallel.
   
+  *notebooks* - This contains some Jupyter notebooks. These aren't super well organized and sometime replicate scripts that are in the scripts folder. 
+  
 ---------------------------------------------------------------
   
 Finding the training data/predictions:
    
-   The data files are mostly saved as netCDF and are too large to upload to GitHub. All the data can be replicated using the scripts in this repository. Here are the paths to the data saved in GLADE storage:
+   The data files are mostly saved as netCDF and are too large to upload to GitHub. All the prediction data can be replicated using the scripts in this repository. Here are the paths to the data saved in GLADE storage:
    
    *Original data* -
         Maurer (1980-1999) - /glade/p/ral/hap/common_data/Maurer_w_MX_CA/pr
@@ -24,8 +28,20 @@ Finding the training data/predictions:
         elevation data for WRF - /glade/collections/cdg/work/cordex/esgf/wrf/era-int/nam-44/eval/fx/orog*
         
    *Prepped data* - (Data for only the Pacific Northwest, unit adjusted, and with the proper input variables)
-        /glade/work/kwheelan/datasets/1979-2010.nc - 
+        WRF and Maurer data with 24 neighboring cells for Pacific Northwest only - /glade/work/kwheelan/datasets/1979-2010.nc
+        Same as the above but with Maurer elevation data - /glade/work/kwheelan/datasets/PNW_w_elevation.nc
+        Only odd years (for validation) - /glade/work/kwheelan/PNW_oddYears.nc
+        Prepped WRF historical period (1976-2005) - /glade/work/kwheelan/PNW_past_prepped.nc
+        Prepped WRF future period (2070-2099) - /glade/work/kwheelan/PNW_future_prepped.nc
         
+    *Prediction data* - 
+        OLS predictions for odd years (static threshold = 0.5) - /glade/work/kwheelan/FinalModelsPreds/OLS_log_oddyrs.nc
+        Same as above, but bias corrected - /glade/work/kwheelan/FinalModelsPreds/OLS_log_oddyrs_scaled.nc
+        Cellwise random forest predictions (static threshold = 0.5) - /glade/work/kwheelan/FinalModelsPreds/Cellwise_RF_allOddYears.nc
+        Unet odd year predictions - 
+        Historical WRF predictions using cellwise random forests (1976-2005) - 
+        Future WRF predictions using cellwise random forests (2070-2099) - 
+        Annual domain-wide averages for each model and each odd year (1980-2010) - /glade/work/kwheelan/FinalModelsPreds/YearlyAvgs.csv
    
 ----------------------------------------------------------------
   
@@ -33,6 +49,6 @@ Data References:
 
        Mearns, L.O., et al., 2017: The NA-CORDEX dataset, version 1.0. NCAR Climate Data Gateway, Boulder CO, accessed 3 June 2019, https://doi.org/10.5065/D6SJ1JCH.
 
-      Maurer, E.P., A.W. Wood, J.C. Adam, D.P. Lettenmaier, and B. Nijssen, 2002, A Long-Term Hydrologically-Based Data Set of Land Surface Fluxes and States for the Conterminous United States, J. Climate 15(22), 3237-3251.
+      Maurer, E.P., A.W. Wood, J.C. Adam, D.P. Lettenmaier, and B. Nijssen, 2002, A Long-Term Hydrologically-Based Data Set of Land Surface Fluxes and States for the Conterminous United States, J. Climate 15 (22), 3237-3251.
 
   
