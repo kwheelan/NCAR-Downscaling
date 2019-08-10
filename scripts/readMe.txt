@@ -2,7 +2,7 @@ This folder contains various Python scripts and a few "modules" of functions
 
 Modules:
 
-     DataFns.py - various data-related functions that can be loaded into the other scripts as a module. Look at the __all__ at the top of the script to see all the functions that are available. Most of these aren't that useful, but I kept all of them. 
+     DataFns.py - various data-related functions that can be loaded into the other scripts as a module. Look at the __all__ at the top of the script to see all the functions that are available.
 
      StatFns.py - various other functions that can also be lodaded into the other scripts as a module. 
 
