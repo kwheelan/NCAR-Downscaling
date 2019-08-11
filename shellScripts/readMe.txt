@@ -14,4 +14,4 @@ Files in this directory:
 
 to add:
 
-  fitOLS.sh
+  fitOLS.sh - editing and will add
