@@ -10,7 +10,7 @@ Folders in this repository:
   
   *shellScripts* - The bash scripts to run on Casper to fit the models and make predictions. These shell scripts call the python scripts in the scripts folder and run them in parallel.
   
-  *notebooks* - This contains some Jupyter notebooks with some animations/plots, including a notebook to read in and combine the probability and intensity datasets.
+  *notebooks* - This contains some Jupyter notebooks with some animations/plots, including a notebook to read in and combine the probability and intensity datasets. This also contains a notebook to do linear predictions.
   
 ---------------------------------------------------------------
   
